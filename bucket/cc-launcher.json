@@ -1,12 +1,12 @@
 {
-    "version": "0.11.2",
+    "version": "0.12.0",
     "description": "Terminal launcher for Claude Code with provider switching and permission mode selection",
     "homepage": "https://github.com/wzx-xle/cc-launcher",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/wzx-xle/cc-launcher/releases/download/v0.11.2/cc-launcher-windows-amd64.zip",
-            "hash": "0fe9d6d440b930c7a94147b5b017518e887a1e4fd536fe485dc04269bb8b7810",
+            "url": "https://github.com/wzx-xle/cc-launcher/releases/download/v0.12.0/cc-launcher-windows-amd64.zip",
+            "hash": "684ef6214d571632e220b29ef65f626bedab7122321792fce9a801c60ebdd55c",
             "bin": ["ccl.cmd"]
         }
     }

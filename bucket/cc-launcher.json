@@ -1,13 +1,20 @@
 {
-    "version": "0.13.3",
+    "version": "0.14.0",
     "description": "Terminal launcher for Claude Code with provider switching and permission mode selection",
     "homepage": "https://github.com/wzx-xle/cc-launcher",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/wzx-xle/cc-launcher/releases/download/v0.13.3/cc-launcher-windows-amd64.zip",
-            "hash": "d5f964a518706619edcbf5ea34d34d58270a04c9983a8ba9ed7bf206ad3586f9",
+            "url": "https://github.com/wzx-xle/cc-launcher/releases/download/v0.14.0/cc-launcher-windows-amd64.zip",
+            "hash": "244ce9e2382c336afab3e1cd57c9c8d0d3957746b97e8b513b6a7bb53f043036",
             "bin": ["ccl.cmd"]
         }
-    }
+    },
+    "pre_uninstall": [
+        "Write-Host '[cc-launcher] scoop uninstall hook: stopping processes that hold the app directory'",
+        "try { ccl serve --stop } catch { }",
+        "$d = $null; try { $d = (appdir 'cc-launcher') } catch { }",
+        "if ($d) { Get-Process -ErrorAction SilentlyContinue | Where-Object { $_.Path -like \"$d*\" } | Stop-Process -Force -ErrorAction SilentlyContinue }",
+        "Start-Sleep -Milliseconds 500"
+    ]
 }
